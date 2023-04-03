@@ -58,7 +58,7 @@ button2.pack(pady=10)
 button3 = tk.Button(root, text="Abrir Diretório Faculdade", command=open_dir_faculdade, width=50)
 button3.pack(pady=10)
 
-# Botão para entrar no site da faculdade com login
+# Botão para entrar no site da faculdade 
 button3 = tk.Button(root, text="Abrir Ava", command=open_ava, width=50)
 button3.pack(pady=10)
 
