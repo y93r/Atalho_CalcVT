@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[3]:
+# In[1]:
 
 
 #bibliotecas
@@ -35,12 +35,20 @@ def open_dir_faculdade():
         tk.messagebox.showerror("Diretório não encontrado não encontrado!", ''' Verifique se o diretório existe ou se foi renomeado''')
 
 #abrir Ava
-
 def open_ava():
     import webbrowser
-    
     url = "https://univirtus.uninter.com/ava/web/"
     webbrowser.open(url)
+    
+    
+def open_dir_cursos():    
+    folder_path = r'C:\Users\Usuário\Documents\Cursos\ '
+    if os.path.exists(folder_path):
+        file1 = filedialog.askopenfilename(initialdir=path.dirname(folder_path))
+        if file1:
+            os.startfile(file1)
+    else:
+        tk.messagebox.showerror("Diretório não encontrado não encontrado!", ''' Verifique se o diretório existe ou se foi renomeado''')
     
 root = tk.Tk()
 root.geometry("400x450")
@@ -59,8 +67,12 @@ button3 = tk.Button(root, text="Abrir Diretório Faculdade", command=open_dir_fa
 button3.pack(pady=10)
 
 # Botão para entrar no site da faculdade 
-button3 = tk.Button(root, text="Abrir Ava", command=open_ava, width=50)
-button3.pack(pady=10)
+button4 = tk.Button(root, text="Abrir Ava", command=open_ava, width=50)
+button4.pack(pady=10)
+
+# Botão para abrir o diretório dos cursos
+button5 = tk.Button(root, text="Abrir Diretório Cursos", command=open_dir_cursos, width=50)
+button5.pack(pady=10)
 
 # Crédito
 credit_label = tk.Label(root, text='Desenvolvido por Yara de Oliveira Rufino', font=('Arial', 10), fg='gray')
