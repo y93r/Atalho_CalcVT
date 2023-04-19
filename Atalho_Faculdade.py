@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
 #bibliotecas
@@ -11,6 +11,7 @@ from tkinter import filedialog
 from os import path
 import shutil
 from tkinter.filedialog import askopenfilename
+import subprocess
 
 
 # Lista com os caminhos dos arquivos
@@ -39,8 +40,7 @@ def open_ava():
     import webbrowser
     url = "https://univirtus.uninter.com/ava/web/"
     webbrowser.open(url)
-    
-    
+       
 def open_dir_cursos():    
     folder_path = r'C:\Users\Usuário\Documents\Cursos\ '
     if os.path.exists(folder_path):
@@ -49,7 +49,10 @@ def open_dir_cursos():
             os.startfile(file1)
     else:
         tk.messagebox.showerror("Diretório não encontrado não encontrado!", ''' Verifique se o diretório existe ou se foi renomeado''')
-    
+
+def open_calc_vt():
+     subprocess.Popen([r"C:\Workspace\Vt\output\vt_calendar.exe"])
+        
 root = tk.Tk()
 root.geometry("400x450")
 root.title('Atalho para abrir arquivos')
@@ -73,6 +76,10 @@ button4.pack(pady=10)
 # Botão para abrir o diretório dos cursos
 button5 = tk.Button(root, text="Abrir Diretório Cursos", command=open_dir_cursos, width=50)
 button5.pack(pady=10)
+
+# Botão para abrir o calculadora do VT
+button6 = tk.Button(root, text="Abrir Calculadora VT", command=open_calc_vt, width=50)
+button6.pack(pady=10)
 
 # Crédito
 credit_label = tk.Label(root, text='Desenvolvido por Yara de Oliveira Rufino', font=('Arial', 10), fg='gray')
